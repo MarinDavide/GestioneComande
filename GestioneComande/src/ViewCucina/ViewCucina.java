@@ -1,10 +1,10 @@
-package View;
+package ViewCucina;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class View {
+public class ViewCucina {
 
 	private JFrame frame;
 
@@ -15,7 +15,7 @@ public class View {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					View window = new View();
+					ViewCucina window = new ViewCucina();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +27,7 @@ public class View {
 	/**
 	 * Create the application.
 	 */
-	public View() {
+	public ViewCucina() {
 		initialize();
 	}
 
