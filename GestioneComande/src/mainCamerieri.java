@@ -5,7 +5,7 @@ public class mainCamerieri {
 		System.out.println("ciao questa è una prova in cui faccio esplodere il programma");
 		int a=4;
 		try {
-			a="ciao";
+			a=Integer.parseInt("ciao");
 		}
 		catch(Exception e) {
 			System.out.println(e);
