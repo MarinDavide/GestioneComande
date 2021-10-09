@@ -2,7 +2,14 @@
 public class mainCamerieri {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println("ciao questa è una prova in cui faccio esplodere il programma");
+		int a=4;
+		try {
+			a="ciao";
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
 
 	}
 
