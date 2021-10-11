@@ -6,6 +6,7 @@ public class mainCamerieri {
 		int a=4;
 		try {
 			a=Integer.parseInt("ciao");
+			System.out.println("ciao");
 		}
 		catch(Exception e) {
 			System.out.println(e);
