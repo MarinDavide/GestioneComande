@@ -34,6 +34,6 @@ public class Comanda implements Serializable{
 	}
 	
 	public String toString() {
-		return "ciao";
+		return "Tavolo: "+tavolo+", Prezzo totale: "+prezzoTot;
 	}
 }

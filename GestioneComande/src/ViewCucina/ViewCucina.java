@@ -1,7 +1,9 @@
 package ViewCucina;
 
 import java.awt.EventQueue;
+import Model.Menu;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +15,7 @@ import Model.Cibo;
 import Model.Comanda;
 
 import java.awt.BorderLayout;
+import javax.swing.JComboBox;
 
 public class ViewCucina {
 
@@ -44,12 +47,7 @@ public class ViewCucina {
 		comanda.setLayout(null);
 		comanda.setVisible(false);
 		frame.getContentPane().add(comanda);
-		
 		listmodel=new DefaultListModel<>();
-		listmodel.addElement(new Comanda());
-		listmodel.addElement(new Comanda());
-		listmodel.addElement(new Comanda());
-		listmodel.addElement(new Comanda());
 		
 		comande=new JList<>();
 		comande.setBounds(10, 10, 600, 400);
@@ -62,10 +60,16 @@ public class ViewCucina {
 		select=new JButton("CUCINA");
 		select.setBounds(690, 200, 80, 200);
 		elenco.add(select);
+		
+		
 	}
 
 	public void mostra() {
 		frame.setVisible(true);
 	}
-
+	
+	public void addComanda(Comanda c) {
+		listmodel.addElement(c);
+		comande.setModel(listmodel);
+	}
 }

@@ -25,4 +25,8 @@ public class Cibo implements Serializable {
 	public String getTipologia() {
 		return tipologia;
 	}
+	
+	public String toString() {
+		return nome+" ("+tipologia+") - "+prezzo+"€";
+	}
 }
