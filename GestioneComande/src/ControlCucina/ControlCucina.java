@@ -24,9 +24,12 @@ public class ControlCucina implements ActionListener{
 			Comanda c=null;
 			c=v.getComanda();
 			if(c!=null)
-				System.out.println("c");
+				m.setComanda(c);
 				v.openComanda(c);
 		}
-		
+		else {
+			m.setCucinato();
+			v.openLista();
+		}
 	}
 }

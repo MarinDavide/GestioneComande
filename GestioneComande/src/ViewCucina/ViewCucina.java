@@ -1,6 +1,8 @@
 package ViewCucina;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
+
 import Model.Menu;
 
 import javax.swing.ComboBoxModel;
@@ -35,6 +37,7 @@ public class ViewCucina {
 	private DefaultListModel<Cibo> listmodelCibi;
 	private JList<Cibo> cibi;
 	private JScrollPane cibi_scroll;
+	private JButton esegui;
 	
 	
 	
@@ -74,27 +77,27 @@ public class ViewCucina {
 		
 		
 		
-		tavolo=new JTextArea("Tavolo: ");
-		tavolo.setBounds(20, 10, 700, 20);
+		tavolo=new JTextArea("");
+		tavolo.setBounds(20, 20, 700, 20);
 		comanda.add(tavolo);
 		
 		elencocibi=new JTextArea("Lista Cibi: ");
-		elencocibi.setBounds(20, 50, 700, 20);
+		elencocibi.setBounds(20, 60, 700, 20);
 		comanda.add(elencocibi);
 		
 		listmodelCibi=new DefaultListModel<>();
 		
 		cibi=new JList<>();	
-		cibi.setBounds(20, 90, 700, 250);
+		cibi.setBounds(20, 80, 700, 250);
 		cibi.setModel(listmodelCibi);
 			
 		cibi_scroll=new JScrollPane(cibi);
-		cibi_scroll.setBounds(20, 90, 700, 250);
+		cibi_scroll.setBounds(20, 80, 700, 350);
 		comanda.add(cibi_scroll);
 		
-		select=new JButton("CUCINA");
-		select.setBounds(370, 200, 100, 50);
-		elenco.add(select);
+		esegui=new JButton("CUCINATO");
+		esegui.setBounds(20, 450, 100, 50);
+		comanda.add(esegui);
 	}
 
 	public void mostra() {
@@ -102,8 +105,8 @@ public class ViewCucina {
 	}
 
 	public void registraController(ControlCucina c) {
-		// Registrare la classe controller sul bottone
 		select.addActionListener(c);
+		esegui.addActionListener(c);
 	}
 	
 	public void addComanda(Comanda c) {
@@ -118,5 +121,16 @@ public class ViewCucina {
 	public void openComanda(Comanda c) {
 		elenco.setVisible(false);
 		comanda.setVisible(true);
+		tavolo.setText("Tavolo: "+c.getTavolo());
+		ArrayList<Cibo> pietanze=c.leggiPietanze();
+		for(int i=0; i<pietanze.size();i++) 
+			listmodelCibi.addElement(pietanze.get(i));
+	}
+
+	public void openLista() {
+		comanda.setVisible(false);
+		elenco.setVisible(true);
+		listmodelCibi.clear();
+		listmodel.clear();
 	}
 }
