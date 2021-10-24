@@ -10,7 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
+import ControlCucina.ControlCucina;
 import Model.Cibo;
 import Model.Comanda;
 
@@ -20,12 +22,20 @@ import javax.swing.JComboBox;
 public class ViewCucina {
 
 	private JFrame frame;
+	
 	private JPanel elenco;
-	private JPanel comanda;
 	private DefaultListModel<Comanda> listmodel;
 	private JList<Comanda> comande;
 	private JScrollPane comande_scroll;
 	private JButton select;
+
+	private JPanel comanda;
+	private JTextArea tavolo;
+	private JTextArea elencocibi;
+	private DefaultListModel<Cibo> listmodelCibi;
+	private JList<Cibo> cibi;
+	private JScrollPane cibi_scroll;
+	
 	
 	
 	public ViewCucina() {
@@ -47,6 +57,7 @@ public class ViewCucina {
 		comanda.setLayout(null);
 		comanda.setVisible(false);
 		frame.getContentPane().add(comanda);
+		
 		listmodel=new DefaultListModel<>();
 		
 		comande=new JList<>();
@@ -62,14 +73,50 @@ public class ViewCucina {
 		elenco.add(select);
 		
 		
+		
+		tavolo=new JTextArea("Tavolo: ");
+		tavolo.setBounds(20, 10, 700, 20);
+		comanda.add(tavolo);
+		
+		elencocibi=new JTextArea("Lista Cibi: ");
+		elencocibi.setBounds(20, 50, 700, 20);
+		comanda.add(elencocibi);
+		
+		listmodelCibi=new DefaultListModel<>();
+		
+		cibi=new JList<>();	
+		cibi.setBounds(20, 90, 700, 250);
+		cibi.setModel(listmodelCibi);
+			
+		cibi_scroll=new JScrollPane(cibi);
+		cibi_scroll.setBounds(20, 90, 700, 250);
+		comanda.add(cibi_scroll);
+		
+		select=new JButton("CUCINA");
+		select.setBounds(370, 200, 100, 50);
+		elenco.add(select);
 	}
 
 	public void mostra() {
 		frame.setVisible(true);
 	}
+
+	public void registraController(ControlCucina c) {
+		// Registrare la classe controller sul bottone
+		select.addActionListener(c);
+	}
 	
 	public void addComanda(Comanda c) {
 		listmodel.addElement(c);
 		comande.setModel(listmodel);
+	}
+	
+	public Comanda getComanda() {
+		return comande.getSelectedValue();
+	}
+
+	public void openComanda(Comanda c) {
+		elenco.setVisible(false);
+		comanda.setVisible(true);
 	}
 }

@@ -19,6 +19,7 @@ public class Comanda implements Serializable{
 		this.prezzoTot=0;
 		this.cucinato=false;
 		this.consegnato=false;
+		pietanze=new ArrayList<Cibo>();
 	}
 	
 	public void setTavolo(int tav) {
@@ -31,6 +32,18 @@ public class Comanda implements Serializable{
 	
 	public ArrayList <Cibo> leggiPietanze(){
 		return pietanze;
+	}
+	
+	public int getTavolo(){
+		return tavolo;
+	}
+	
+	public void setCucinato() {
+		cucinato=true;
+	}
+	
+	public void setConsegnato() {
+		consegnato=true;
 	}
 	
 	public String toString() {
