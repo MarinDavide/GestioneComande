@@ -6,16 +6,16 @@ import java.util.ArrayList;
 
 import Model.Comanda;
 import Model.ModelCucina;
-import Model.file;
+import Model.File;
 import ViewCucina.ViewCucina;
 
 public class ControlCucina implements ActionListener{
 	
 	private ViewCucina v;
 	private ModelCucina m;
-	private file fc;
+	private File fc;
 
-	public ControlCucina(ModelCucina m,ViewCucina v, file fc) {
+	public ControlCucina(ModelCucina m,ViewCucina v, File fc) {
 		this.v=v;
 		this.m=m;
 		this.fc=fc;
