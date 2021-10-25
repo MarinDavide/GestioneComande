@@ -26,6 +26,7 @@ public class Comanda implements Serializable{
 	
 	public void aggiungiPietanza(Cibo c) {
 		pietanze.add(c);
+		prezzoTot+=c.getPrezzo();
 	}
 	
 	public ArrayList <Cibo> leggiPietanze(){
