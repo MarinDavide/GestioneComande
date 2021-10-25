@@ -14,10 +14,14 @@ public class ModelCameriere {
 		comande.add(c);
 	}
 	public ArrayList<Comanda> getComande() {
+		for(int i = 0; i < comande.size(); i++) {
+            System.out.println("comanda: "+comande.get(i).toString());
+        }
 		return comande;
 	}
 	public void setComande(ArrayList<Comanda> comande){
 		comande.addAll(comande);
+		System.out.println(comande.size());
 		for(int i = 0; i < comande.size(); i++) {
             System.out.println("comanda: "+comande.get(i).toString());
         }
