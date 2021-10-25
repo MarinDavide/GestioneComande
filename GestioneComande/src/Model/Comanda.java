@@ -30,6 +30,9 @@ public class Comanda implements Serializable{
 	}
 	
 	public ArrayList <Cibo> leggiPietanze(){
+		for(int x=0; x<pietanze.size(); x++) {
+				System.out.println(pietanze.get(x));
+			}
 		return pietanze;
 	}
 	
