@@ -37,7 +37,7 @@ public class ControlCameriere implements ActionListener{
 			v.ricComande();
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Consegna Comanda")) {
-			v.ConsComande();
+			v.consComande(m.getComande());
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Conferma Ordine")) {
 			//salva su file
@@ -49,6 +49,13 @@ public class ControlCameriere implements ActionListener{
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Aggiungi")) {
 			v.aggiungiAOrdine();
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("Consegna")) {
+			System.out.println("consegno");
+			v.consegnaAlCliente(m.getComande());
+		}
+		if (arg0.getActionCommand().equalsIgnoreCase("Home")) {
+			v.home();
 		}
 	}
 	

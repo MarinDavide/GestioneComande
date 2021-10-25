@@ -16,6 +16,8 @@ import Model.Comanda;
 import Model.Menu;
 
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JTextArea;
 import javax.swing.ListModel;
 import javax.swing.JComboBox;
@@ -31,6 +33,8 @@ public class ViewCameriere {
 	private JButton btnRicComande;
 	private JButton btnConsComande;
 	private JButton btnAggiungi;
+	private JButton btnHome;
+	private JButton btnConsegna;
 	private JTextArea textRiepOrdine;
 	private JComboBox<Cibo> comboBox;
 	private Cibo[] menu;
@@ -39,6 +43,8 @@ public class ViewCameriere {
 	private int tavolo=1;
 	private Comanda c;
 	private String riepOrdine = "";
+	private JList list;
+	private DefaultListModel<Comanda> listmodel;
 
 	public ViewCameriere(Comanda com) {
 		m = new Menu();
@@ -93,7 +99,7 @@ public class ViewCameriere {
 		panelRicComande.add(btnConfOrdine);
 
 		comboBox = new JComboBox<Cibo>(menu);
-		// comboBox = new JComboBox<>();
+		//comboBox = new JComboBox<>();
 		comboBox.setBounds(228, 44, 97, 23);
 		panelRicComande.add(comboBox);
 
@@ -105,6 +111,24 @@ public class ViewCameriere {
 		panelConsComande = new JPanel();
 		frame.getContentPane().add(panelConsComande, "name_562332202200");
 		panelConsComande.setLayout(null);
+		
+		btnHome = new JButton("Home");
+		btnHome.setBounds(272, 176, 141, 37);
+		panelConsComande.add(btnHome);
+		
+		btnConsegna = new JButton("Consegna");
+		btnConsegna.setBounds(31, 176, 141, 37);
+		panelConsComande.add(btnConsegna);
+		
+		listmodel=new DefaultListModel<>();
+		list = new JList();
+		list.setBounds(31, 33, 382, 132);
+		list.setModel(listmodel);
+		panelConsComande.add(list);
+		
+		JLabel lblNewLabel_2 = new JLabel("Comande pronte:");
+		lblNewLabel_2.setBounds(31, 11, 166, 20);
+		panelConsComande.add(lblNewLabel_2);
 	}
 
 	public void setVisible(boolean b) {
@@ -116,6 +140,8 @@ public class ViewCameriere {
 		btnConfOrdine.addActionListener(controller);
 		btnConsComande.addActionListener(controller);
 		btnRicComande.addActionListener(controller);
+		btnHome.addActionListener(controller);
+		btnConsegna.addActionListener(controller);
 	}
 
 	public void ricComande() {
@@ -123,7 +149,14 @@ public class ViewCameriere {
 		panelHome.setVisible(false);
 	}
 
-	public void ConsComande() {
+	public void consComande(ArrayList<Comanda> comande) {
+		listmodel.clear();
+		for(int x=0; x<comande.size(); x++) {
+			if(!comande.get(x).getConsegnato()) {
+			listmodel.addElement(comande.get(x));
+			}
+		}
+		list.setModel(listmodel);
 		panelConsComande.setVisible(true);
 		panelHome.setVisible(false);
 	}
@@ -158,10 +191,17 @@ public class ViewCameriere {
 		tavolo++;
 		return c;
 	}
-
+	public void consegnaAlCliente(ArrayList<Comanda> comande) {
+		comande.get(list.getSelectedIndex()).setConsegnato();
+		listmodel.clear();
+		for(int x=0; x<comande.size(); x++) {
+			if(comande.get(x).getConsegnato()==false) {
+			listmodel.addElement(comande.get(x));
+			}
+		}
+		list.setModel(listmodel);
+	}
 	public void setPiattiOrdinati(int piattiOrdinati) {
 		this.piattiOrdinati = piattiOrdinati;
 	}
-
-	
 }
