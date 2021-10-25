@@ -16,6 +16,7 @@ public class mainCamerieri {
 		File f = new File();
 		ControlCameriere c = new ControlCameriere(m, v, com, f);
 		v.setVisible(true);
+		
 	}
 
 }
