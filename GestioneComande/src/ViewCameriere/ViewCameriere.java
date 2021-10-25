@@ -143,6 +143,7 @@ public class ViewCameriere {
 	}
 
 	public Comanda confermaOrdine() {
+		Comanda c = new Comanda();
 		c.setTavolo(tavolo);
 		System.out.println("tavolo: "+c.getTavolo());
 		for (int x = 0; x < piattiOrdinati; x++) {
@@ -152,7 +153,8 @@ public class ViewCameriere {
 			ordine[i]=null;
         }
 		piattiOrdinati=0;
-		textRiepOrdine.setText("");
+		riepOrdine = "";
+		textRiepOrdine.setText(riepOrdine);
 		tavolo++;
 		return c;
 	}
