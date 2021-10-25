@@ -30,7 +30,6 @@ public class File {
 			}
 			fis.close();
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return a;
 	}
@@ -44,7 +43,6 @@ public class File {
 			oos.flush();
 			fos.close();
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
