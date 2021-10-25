@@ -29,6 +29,9 @@ public class Comanda implements Serializable{
 	}
 	
 	public ArrayList <Cibo> leggiPietanze(){
+		for(int x=0; x<pietanze.size(); x++) {
+				System.out.println(pietanze.get(x));
+			}
 		return pietanze;
 	}
 	
@@ -67,6 +70,6 @@ public class Comanda implements Serializable{
 	}
 	
 	public String toString() {
-		return "Tavolo: "+tavolo+", Prezzo totale: "+prezzoTot;
+		return "Tavolo: "+tavolo+", Prezzo totale: "+prezzoTot+""+consegnato;
 	}
 }

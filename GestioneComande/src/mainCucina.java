@@ -16,7 +16,7 @@ public class mainCucina {
 		ViewCucina v = new ViewCucina();
 		ModelCucina m = new ModelCucina();
 		File fc = new File();
-		
+		/*
 		Menu me=new Menu();
 		Cibo[] menu = me.getMenu();
 		ArrayList<Comanda> cc = new ArrayList<>();
@@ -41,7 +41,7 @@ public class mainCucina {
 		co.aggiungiPietanza(menu[8]);
 		cc.add(co);
 		fc.setComande(cc);
-		
+		*/
 
 		ControlCucina c = new ControlCucina(m, v,fc);
 		v.mostra();
