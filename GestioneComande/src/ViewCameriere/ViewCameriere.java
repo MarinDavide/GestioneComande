@@ -152,7 +152,7 @@ public class ViewCameriere {
 	public void consComande(ArrayList<Comanda> comande) {
 		listmodel.clear();
 		for(int x=0; x<comande.size(); x++) {
-			if(!comande.get(x).getConsegnato()) {
+			if(!comande.get(x).getConsegnato() && comande.get(x).getCucinato()) {
 			listmodel.addElement(comande.get(x));
 			}
 		}
@@ -191,15 +191,16 @@ public class ViewCameriere {
 		tavolo++;
 		return c;
 	}
-	public void consegnaAlCliente(ArrayList<Comanda> comande) {
+	public ArrayList<Comanda> consegnaAlCliente(ArrayList<Comanda> comande) {
 		comande.get(list.getSelectedIndex()).setConsegnato();
 		listmodel.clear();
 		for(int x=0; x<comande.size(); x++) {
-			if(comande.get(x).getConsegnato()==false) {
-			listmodel.addElement(comande.get(x));
+			if((comande.get(x).getConsegnato()==false) && (comande.get(x).getCucinato()==true)) {
+				listmodel.addElement(comande.get(x));	
 			}
 		}
 		list.setModel(listmodel);
+		return comande;
 	}
 	public void setPiattiOrdinati(int piattiOrdinati) {
 		this.piattiOrdinati = piattiOrdinati;
