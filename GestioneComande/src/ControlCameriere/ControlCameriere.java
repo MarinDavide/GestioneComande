@@ -52,8 +52,10 @@ public class ControlCameriere implements ActionListener{
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Consegna")) {
 			System.out.println("consegno");
-			
-			f.setComande(v.consegnaAlCliente(m.getComande()));
+			m.clear();
+			m.setComande(v.consegnaAlCliente(f.getComande()));
+			f.setComande(m.getComande());
+			v.consegnaAlCliente2(f.getComande());
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Home")) {
 			v.home();

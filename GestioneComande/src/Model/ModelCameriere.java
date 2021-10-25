@@ -23,11 +23,10 @@ public class ModelCameriere {
         }
 		return comande;
 	}
+	public void clear() {
+		comande.clear();
+	}
 	public void setComande(ArrayList<Comanda> comande){
 		comande.addAll(comande);
-		System.out.println(comande.size());
-		for(int i = 0; i < comande.size(); i++) {
-            System.out.println("comanda: "+comande.get(i).toString());
-        }
 	}
 }

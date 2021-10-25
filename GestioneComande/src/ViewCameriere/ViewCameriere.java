@@ -43,7 +43,7 @@ public class ViewCameriere {
 	private int tavolo=1;
 	private Comanda c;
 	private String riepOrdine = "";
-	private JList list;
+	private JList<Comanda> list;
 	private DefaultListModel<Comanda> listmodel;
 
 	public ViewCameriere(Comanda com) {
@@ -121,7 +121,7 @@ public class ViewCameriere {
 		panelConsComande.add(btnConsegna);
 		
 		listmodel=new DefaultListModel<>();
-		list = new JList();
+		list = new JList<>();
 		list.setBounds(31, 33, 382, 132);
 		list.setModel(listmodel);
 		panelConsComande.add(list);
@@ -193,6 +193,10 @@ public class ViewCameriere {
 	}
 	public ArrayList<Comanda> consegnaAlCliente(ArrayList<Comanda> comande) {
 		comande.get(list.getSelectedIndex()).setConsegnato();
+		//listmodel.clear();
+		return comande;
+	}
+	public ArrayList<Comanda> consegnaAlCliente2(ArrayList<Comanda> comande) {
 		listmodel.clear();
 		for(int x=0; x<comande.size(); x++) {
 			if((comande.get(x).getConsegnato()==false) && (comande.get(x).getCucinato()==true)) {
