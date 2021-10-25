@@ -36,13 +36,15 @@ public class ControlCucina implements ActionListener{
 			m.setCucinato();
 			fc.setComande(m.getComande());
 			v.openLista();
+			addListaComande();
 		}
 	}
 	
 	private void addListaComande() {
 		ArrayList<Comanda> ce=fc.getComande();
 		for(int i=0;i<ce.size();i++)
-			v.addComanda(ce.get(i));
+			if(ce.get(i).getCucinato()==false)
+				v.addComanda(ce.get(i));
 		m.setComande(ce);
 	}
 }

@@ -46,6 +46,28 @@ public class Comanda implements Serializable{
 		consegnato=true;
 	}
 	
+	public boolean getCucinato() {
+		return cucinato;
+	}
+	
+	public boolean getConsegnato() {
+		return consegnato;
+	}
+	
+	public boolean equals(Comanda co) {
+		if(this.tavolo==co.tavolo) {
+			if(this.prezzoTot==co.prezzoTot) {
+				if(this.pietanze.size()==co.pietanze.size()) {
+					for(int i=0; i<this.pietanze.size(); i++)
+						if(this.pietanze.get(i)!=co.pietanze.get(i))
+							return false;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public String toString() {
 		return "Tavolo: "+tavolo+", Prezzo totale: "+prezzoTot;
 	}

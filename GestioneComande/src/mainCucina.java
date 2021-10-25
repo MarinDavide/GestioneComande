@@ -1,6 +1,9 @@
 import Model.Menu;
 import Model.ModelCucina;
 import Model.File;
+
+import java.util.ArrayList;
+
 import ControlCucina.ControlCucina;
 import Model.Cibo;
 import Model.Comanda;
@@ -13,31 +16,35 @@ public class mainCucina {
 		ViewCucina v = new ViewCucina();
 		ModelCucina m = new ModelCucina();
 		File fc = new File();
-		ControlCucina c = new ControlCucina(m, v,fc);
-		v.mostra();
 		
 		Menu me=new Menu();
 		Cibo[] menu = me.getMenu();
+		ArrayList<Comanda> cc = new ArrayList<>();
 		Comanda co=new Comanda();
 		co.setTavolo(4);
 		co.aggiungiPietanza(menu[1]);
-		v.addComanda(co);
+		cc.add(co);
 		co=new Comanda();
 		co.setTavolo(6);
 		co.aggiungiPietanza(menu[2]);
 		co.aggiungiPietanza(menu[5]);
-		v.addComanda(co);
+		cc.add(co);
 		co=new Comanda();
 		co.setTavolo(8);
 		co.aggiungiPietanza(menu[3]);
 		co.aggiungiPietanza(menu[6]);
 		co.aggiungiPietanza(menu[7]);
-		v.addComanda(co);
+		cc.add(co);
 		co=new Comanda();
 		co.setTavolo(7);
 		co.aggiungiPietanza(menu[4]);
 		co.aggiungiPietanza(menu[8]);
-		v.addComanda(co);
+		cc.add(co);
+		fc.setComande(cc);
+		
+
+		ControlCucina c = new ControlCucina(m, v,fc);
+		v.mostra();
 	}
 
 }
