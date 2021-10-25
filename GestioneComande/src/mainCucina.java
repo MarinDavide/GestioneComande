@@ -1,5 +1,6 @@
 import Model.Menu;
 import Model.ModelCucina;
+import Model.file;
 import ControlCucina.ControlCucina;
 import Model.Cibo;
 import Model.Comanda;
@@ -11,7 +12,8 @@ public class mainCucina {
 		
 		ViewCucina v = new ViewCucina();
 		ModelCucina m = new ModelCucina();
-		ControlCucina c = new ControlCucina(m, v);
+		file fc = new file();
+		ControlCucina c = new ControlCucina(m, v,fc);
 		v.mostra();
 		
 		Menu me=new Menu();
