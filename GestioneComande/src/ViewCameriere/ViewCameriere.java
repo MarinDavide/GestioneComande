@@ -1,11 +1,12 @@
 package ViewCameriere;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.CardLayout;
+import java.awt.Color;
+
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -19,7 +20,6 @@ import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JTextArea;
-import javax.swing.ListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 
@@ -40,15 +40,12 @@ public class ViewCameriere {
 	private Cibo[] menu;
 	private Cibo[] ordine;
 	private int piattiOrdinati=0;
-	private int tavolo=1;
-	private Comanda c;
 	private String riepOrdine = "";
 	private JList<Comanda> list;
 	private DefaultListModel<Comanda> listmodel;
 
-	public ViewCameriere(Comanda com) {
+	public ViewCameriere() {
 		m = new Menu();
-		this.c=com;
 		menu = m.getMenu();
 		ordine = new Cibo[100];
 		initialize();
@@ -60,74 +57,89 @@ public class ViewCameriere {
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setTitle("Ristorante - Cameriere");
+		ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("Model/imgRistorante.jpg"));
+		frame.setIconImage(ico.getImage());
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 400, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
 		panelHome = new JPanel();
+		panelHome.setBackground(new Color(255,245,100));
 		frame.getContentPane().add(panelHome, "name_473329837800");
 		panelHome.setLayout(null);
 
 		btnRicComande = new JButton("Nuova Comanda");
-		btnRicComande.setBounds(39, 161, 155, 39);
+		btnRicComande.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnRicComande.setBackground(new Color(255, 180, 130));
+		btnRicComande.setBounds(75, 150, 250, 50);
 		panelHome.add(btnRicComande);
 
 		btnConsComande = new JButton("Consegna Comanda");
-		btnConsComande.setBounds(242, 161, 155, 39);
+		btnConsComande.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnConsComande.setBackground(new Color(255, 180, 130));
+		btnConsComande.setBounds(75, 300, 250, 50);
 		panelHome.add(btnConsComande);
 
 		JLabel lblNewLabel = new JLabel("Gestione Comande");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(51, 11, 329, 45);
+		lblNewLabel.setBounds(0, 10, 400, 45);
 		panelHome.add(lblNewLabel);
 
 		panelRicComande = new JPanel();
+		panelRicComande.setBackground(new Color(255,245,100));
 		frame.getContentPane().add(panelRicComande, "name_494704258300");
 		panelRicComande.setLayout(null);
 
 		btnAggiungi = new JButton("Aggiungi");
-		btnAggiungi.setBounds(322, 44, 81, 23);
+		btnAggiungi.setBounds(125, 90, 150, 30);
 		panelRicComande.add(btnAggiungi);
 
 		JLabel lblNewLabel_1 = new JLabel("Riepilogo ordine:");
-		lblNewLabel_1.setBounds(10, 27, 109, 14);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(0, 10, 200, 25);
 		panelRicComande.add(lblNewLabel_1);
 
 		btnConfOrdine = new JButton("Conferma Ordine");
-		btnConfOrdine.setBounds(228, 202, 122, 23);
+		btnConfOrdine.setBounds(125, 575, 150, 30);
 		panelRicComande.add(btnConfOrdine);
 
 		comboBox = new JComboBox<Cibo>(menu);
-		//comboBox = new JComboBox<>();
-		comboBox.setBounds(228, 44, 97, 23);
+		//comboBox = new JComboBox(menu);
+		comboBox.setBounds(20, 50, 350, 25);
 		panelRicComande.add(comboBox);
 
 		textRiepOrdine = new JTextArea();
 		textRiepOrdine.setEditable(false);
-		textRiepOrdine.setBounds(10, 43, 193, 207);
+		textRiepOrdine.setBounds(20, 150, 350, 400);
 		panelRicComande.add(textRiepOrdine);
 
 		panelConsComande = new JPanel();
+		panelConsComande.setBackground(new Color(255,245,100));
 		frame.getContentPane().add(panelConsComande, "name_562332202200");
 		panelConsComande.setLayout(null);
 		
 		btnHome = new JButton("Home");
-		btnHome.setBounds(272, 176, 141, 37);
+		btnHome.setBounds(100, 525, 200, 30);
 		panelConsComande.add(btnHome);
 		
 		btnConsegna = new JButton("Consegna");
-		btnConsegna.setBounds(31, 176, 141, 37);
+		btnConsegna.setBounds(100, 450, 200, 30);
 		panelConsComande.add(btnConsegna);
 		
 		listmodel=new DefaultListModel<>();
 		list = new JList<>();
-		list.setBounds(31, 33, 382, 132);
+		list.setBounds(20, 50, 350, 350);
 		list.setModel(listmodel);
 		panelConsComande.add(list);
 		
 		JLabel lblNewLabel_2 = new JLabel("Comande pronte:");
-		lblNewLabel_2.setBounds(31, 11, 166, 20);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(0, 10, 200, 25);
 		panelConsComande.add(lblNewLabel_2);
 	}
 
@@ -153,7 +165,7 @@ public class ViewCameriere {
 		listmodel.clear();
 		for(int x=0; x<comande.size(); x++) {
 			if(!comande.get(x).getConsegnato() && comande.get(x).getCucinato()) {
-			listmodel.addElement(comande.get(x));
+				listmodel.addElement(comande.get(x));
 			}
 		}
 		list.setModel(listmodel);
@@ -170,15 +182,14 @@ public class ViewCameriere {
 	public void aggiungiAOrdine() {
 		riepOrdine = riepOrdine + (comboBox.getSelectedItem().toString()) + "\n";
 		textRiepOrdine.setText(riepOrdine);
-		System.out.println("piatti ordinati: "+piattiOrdinati);
+		//System.out.println("piatti ordinati: "+piattiOrdinati);
 		ordine[piattiOrdinati] = (Cibo) (comboBox.getSelectedItem());
 		piattiOrdinati++;
 	}
 
 	public Comanda confermaOrdine() {
 		Comanda c = new Comanda();
-		c.setTavolo(tavolo);
-		System.out.println("tavolo: "+c.getTavolo());
+		//System.out.println("tavolo: "+c.getTavolo());
 		for (int x = 0; x < piattiOrdinati; x++) {
 			c.aggiungiPietanza(ordine[x]);
 		}
@@ -188,24 +199,29 @@ public class ViewCameriere {
 		piattiOrdinati=0;
 		riepOrdine = "";
 		textRiepOrdine.setText(riepOrdine);
-		tavolo++;
 		return c;
 	}
-	public ArrayList<Comanda> consegnaAlCliente(ArrayList<Comanda> comande) {
-		comande.get(list.getSelectedIndex()).setConsegnato();
-		//listmodel.clear();
-		return comande;
+	public boolean consegnaAlCliente() {
+		Boolean selected=true;
+		try {
+			list.getSelectedValue().setConsegnato();
+		}catch(Exception e) {
+			selected=false;
+		}
+		return selected;
 	}
-	public ArrayList<Comanda> consegnaAlCliente2(ArrayList<Comanda> comande) {
+	
+	public void aggiornaList(ArrayList<Comanda> comande) {
 		listmodel.clear();
 		for(int x=0; x<comande.size(); x++) {
 			if((comande.get(x).getConsegnato()==false) && (comande.get(x).getCucinato()==true)) {
-				listmodel.addElement(comande.get(x));	
+				listmodel.addElement(comande.get(x));
 			}
 		}
 		list.setModel(listmodel);
-		return comande;
 	}
+
+
 	public void setPiattiOrdinati(int piattiOrdinati) {
 		this.piattiOrdinati = piattiOrdinati;
 	}

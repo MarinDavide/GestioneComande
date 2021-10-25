@@ -28,9 +28,10 @@ public class ControlCucina implements ActionListener{
 		if(arg0.getActionCommand().equalsIgnoreCase("CUCINA")) {
 			Comanda c=null;
 			c=v.getComanda();
-			if(c!=null)
+			if(c!=null) {
 				m.setComanda(c);
 				v.openComanda(c);
+			}
 		}
 		else if(arg0.getActionCommand().equalsIgnoreCase("exit")){
 			v.openLista();

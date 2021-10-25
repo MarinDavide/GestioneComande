@@ -1,12 +1,9 @@
 package ViewCucina;
 
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
-import Model.Menu;
-
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -18,8 +15,6 @@ import ControlCucina.ControlCucina;
 import Model.Cibo;
 import Model.Comanda;
 
-import java.awt.BorderLayout;
-import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -47,7 +42,9 @@ public class ViewCucina {
 	
 	public ViewCucina() {
 		frame = new JFrame();
-		frame.setTitle("Cucina");
+		frame.setTitle("Ristorante - Cucina");
+		ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("Model/imgRistorante.jpg"));
+		frame.setIconImage(ico.getImage());
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

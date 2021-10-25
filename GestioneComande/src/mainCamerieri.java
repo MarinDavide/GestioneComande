@@ -1,7 +1,6 @@
 import ControlCameriere.ControlCameriere;
 import Model.ModelCameriere;
 import ViewCameriere.ViewCameriere;
-import Model.Comanda;
 import Model.File;
 
 public class mainCamerieri {
@@ -10,10 +9,10 @@ public class mainCamerieri {
 		
 		
 		ModelCameriere m = new ModelCameriere();
-		Comanda com = new Comanda();
-		ViewCameriere v= new ViewCameriere(com);
+		ViewCameriere v= new ViewCameriere();
 		File f = new File();
-		ControlCameriere c = new ControlCameriere(m, v, com, f);
+		@SuppressWarnings("unused")
+		ControlCameriere c = new ControlCameriere(m, v, f);
 		v.setVisible(true);
 		
 	}

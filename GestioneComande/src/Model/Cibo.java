@@ -2,6 +2,7 @@
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Cibo implements Serializable {
 
 	private String nome;

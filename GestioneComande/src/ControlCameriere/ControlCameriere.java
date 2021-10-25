@@ -2,33 +2,22 @@ package ControlCameriere;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import ViewCameriere.ViewCameriere;
-import Model.Cibo;
 import Model.ModelCameriere;
 import Model.File;
-import Model.Comanda;
 public class ControlCameriere implements ActionListener{
 
 	private ViewCameriere v;
 	private ModelCameriere m;
-	private Comanda com;
 	private File f;
 	
-	public ControlCameriere(ModelCameriere m, ViewCameriere v, Comanda com, File f) {
+	public ControlCameriere(ModelCameriere m, ViewCameriere v, File f) {
 		this.m=m;
 		this.v=v;
-		this.com=com;
 		this.f=f;
-		f.getComande();
+		m.setComande(f.getComande());
 		v.registraController(this);
-		//v.loadMenu();
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -37,13 +26,12 @@ public class ControlCameriere implements ActionListener{
 			v.ricComande();
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Consegna Comanda")) {
-			v.consComande(f.getComande());
+			v.consComande(m.getComande());
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Conferma Ordine")) {
 			//salva su file
 			v.home();
 			m.aggiungiComanda(v.confermaOrdine());
-			com.leggiPietanze();
 			//m.getComande(f.getComande());
 			f.setComande(m.getComande());
 		}
@@ -51,11 +39,12 @@ public class ControlCameriere implements ActionListener{
 			v.aggiungiAOrdine();
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Consegna")) {
-			System.out.println("consegno");
-			m.clear();
-			m.setComande(v.consegnaAlCliente(f.getComande()));
-			f.setComande(m.getComande());
-			v.consegnaAlCliente2(f.getComande());
+			//System.out.println("consegno");
+			boolean selezionato = v.consegnaAlCliente();
+			if(selezionato) {
+				f.setComande(m.getComande());
+				v.aggiornaList(m.getComande());
+			}
 		}
 		if (arg0.getActionCommand().equalsIgnoreCase("Home")) {
 			v.home();

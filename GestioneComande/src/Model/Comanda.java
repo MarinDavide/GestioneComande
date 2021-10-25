@@ -3,6 +3,7 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class Comanda implements Serializable{
 
 	private ArrayList <Cibo> pietanze;
@@ -13,15 +14,11 @@ public class Comanda implements Serializable{
 	
 	
 	public Comanda() {
-		this.tavolo=0;
+		this.tavolo=(int) (Math.random()*20);
 		this.prezzoTot=0;
 		this.cucinato=false;
 		this.consegnato=false;
 		pietanze=new ArrayList<Cibo>();
-	}
-	
-	public void setTavolo(int tav) {
-		tavolo=tav;
 	}
 	
 	public void aggiungiPietanza(Cibo c) {
@@ -30,9 +27,11 @@ public class Comanda implements Serializable{
 	}
 	
 	public ArrayList <Cibo> leggiPietanze(){
+		/*
 		for(int x=0; x<pietanze.size(); x++) {
 				System.out.println(pietanze.get(x));
 			}
+		*/
 		return pietanze;
 	}
 	
