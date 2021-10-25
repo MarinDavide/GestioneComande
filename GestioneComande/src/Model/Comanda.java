@@ -3,8 +3,6 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
-
 public class Comanda implements Serializable{
 
 	private ArrayList <Cibo> pietanze;
