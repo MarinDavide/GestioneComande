@@ -20,6 +20,9 @@ import Model.Comanda;
 
 import java.awt.BorderLayout;
 import javax.swing.JComboBox;
+import java.awt.Font;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class ViewCucina {
 
@@ -65,6 +68,8 @@ public class ViewCucina {
 		listmodel=new DefaultListModel<>();
 		
 		comande=new JList<>();
+		comande.setBorder(new LineBorder(new Color(0, 0, 0)));
+		comande.setFont(new Font("Source Sans Pro", Font.PLAIN, 25));
 		comande.setBounds(10, 10, 600, 400);
 		comande.setModel(listmodel);
 			

@@ -68,6 +68,6 @@ public class Comanda implements Serializable{
 	}
 	
 	public String toString() {
-		return "Tavolo: "+tavolo+", Prezzo totale: "+prezzoTot;
+		return "Tavolo: "+tavolo+", Numero Pietanze: "+pietanze.size()+", Prezzo totale: "+prezzoTot+"€";
 	}
 }
