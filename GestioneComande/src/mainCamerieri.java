@@ -1,17 +1,21 @@
+import ControlCameriere.ControlCameriere;
+import Model.ModelCameriere;
+import ViewCameriere.ViewCameriere;
+import Model.Comanda;
+import Model.FileCameriere;
+import Model.File;
 
 public class mainCamerieri {
 
 	public static void main(String[] args) {
-		System.out.println("ciao questa è una prova in cui faccio esplodere il programma");
-		int a=4;
-		try {
-			a=Integer.parseInt("ciao");
-			System.out.println("ciao Marin");
-		}
-		catch(Exception e) {
-			System.out.println(e);
-		}
-
+		
+		
+		ModelCameriere m = new ModelCameriere();
+		Comanda com = new Comanda();
+		ViewCameriere v= new ViewCameriere(com);
+		File f = new File();
+		ControlCameriere c = new ControlCameriere(m, v, com, f);
+		v.setVisible(true);
 	}
 
 }
