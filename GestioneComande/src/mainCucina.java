@@ -40,8 +40,12 @@ public class mainCucina {
 		co.aggiungiPietanza(menu[4]);
 		co.aggiungiPietanza(menu[8]);
 		cc.add(co);
+<<<<<<< HEAD
 		fc.setComande(cc);
 		*/
+=======
+		
+>>>>>>> branch 'master' of https://github.com/MarinDavide/GestioneComande.git
 
 		ControlCucina c = new ControlCucina(m, v,fc);
 		v.mostra();

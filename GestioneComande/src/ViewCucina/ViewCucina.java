@@ -38,6 +38,7 @@ public class ViewCucina {
 	private JList<Cibo> cibi;
 	private JScrollPane cibi_scroll;
 	private JButton esegui;
+	private JButton exit;
 	
 	
 	
@@ -98,6 +99,10 @@ public class ViewCucina {
 		esegui=new JButton("CUCINATO");
 		esegui.setBounds(20, 450, 100, 50);
 		comanda.add(esegui);
+		
+		exit=new JButton("exit");
+		exit.setBounds(620, 450, 100, 50);
+		comanda.add(exit);
 	}
 
 	public void mostra() {
@@ -107,6 +112,7 @@ public class ViewCucina {
 	public void registraController(ControlCucina c) {
 		select.addActionListener(c);
 		esegui.addActionListener(c);
+		exit.addActionListener(c);
 	}
 	
 	public void addComanda(Comanda c) {
