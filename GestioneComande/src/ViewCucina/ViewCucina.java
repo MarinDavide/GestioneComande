@@ -52,12 +52,14 @@ public class ViewCucina {
 		
 		elenco = new JPanel();
 		elenco.setBounds(0, 0, 794, 565);
+		elenco.setBackground(new Color(255,250,150));
 		elenco.setLayout(null);
 		elenco.setVisible(true);
 		frame.getContentPane().add(elenco);
 		
 		comanda = new JPanel();
 		comanda.setBounds(0, 0, 794, 565);
+		comanda.setBackground(new Color(255,250,150));
 		comanda.setLayout(null);
 		comanda.setVisible(false);
 		frame.getContentPane().add(comanda);
@@ -74,17 +76,21 @@ public class ViewCucina {
 		comande_scroll.setBounds(20, 20, 650, 520);
 		elenco.add(comande_scroll);
 		
-		select=new JButton("CUCINA");
+		select=new JButton("Apri");
 		select.setBounds(690, 200, 80, 200);
 		elenco.add(select);
 		
 		
 		
 		tavolo=new JTextArea("");
+		tavolo.setBackground(new Color(255,250,150));
+		tavolo.setFont(new Font("Source Sans Pro", Font.PLAIN, 20));
 		tavolo.setBounds(20, 20, 700, 20);
 		comanda.add(tavolo);
 		
 		elencocibi=new JTextArea("Lista Cibi: ");
+		elencocibi.setFont(new Font("Source Sans Pro", Font.PLAIN, 20));
+		elencocibi.setBackground(new Color(255,250,150));
 		elencocibi.setBounds(20, 60, 700, 20);
 		comanda.add(elencocibi);
 		
@@ -92,17 +98,18 @@ public class ViewCucina {
 		
 		cibi=new JList<>();	
 		cibi.setBounds(20, 80, 700, 250);
+		cibi.setFont(new Font("Source Sans Pro", Font.PLAIN, 18));
 		cibi.setModel(listmodelCibi);
 			
 		cibi_scroll=new JScrollPane(cibi);
-		cibi_scroll.setBounds(20, 80, 700, 350);
+		cibi_scroll.setBounds(20, 85, 700, 350);
 		comanda.add(cibi_scroll);
 		
-		esegui=new JButton("CUCINATO");
+		esegui=new JButton("Cucinato");
 		esegui.setBounds(20, 450, 100, 50);
 		comanda.add(esegui);
 		
-		exit=new JButton("exit");
+		exit=new JButton("Exit");
 		exit.setBounds(620, 450, 100, 50);
 		comanda.add(exit);
 	}

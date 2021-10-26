@@ -94,7 +94,9 @@ public class ViewCameriere {
 		panelRicComande.setLayout(null);
 
 		btnAggiungi = new JButton("Aggiungi");
-		btnAggiungi.setBounds(125, 90, 150, 30);
+		btnAggiungi.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnAggiungi.setBackground(new Color(255, 180, 130));
+		btnAggiungi.setBounds(125, 90, 150, 35);
 		panelRicComande.add(btnAggiungi);
 
 		JLabel lblNewLabel_1 = new JLabel("Riepilogo ordine:");
@@ -104,7 +106,9 @@ public class ViewCameriere {
 		panelRicComande.add(lblNewLabel_1);
 
 		btnConfOrdine = new JButton("Conferma Ordine");
-		btnConfOrdine.setBounds(125, 575, 150, 30);
+		btnConfOrdine.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnConfOrdine.setBackground(new Color(255, 180, 130));
+		btnConfOrdine.setBounds(100, 575, 200, 40);
 		panelRicComande.add(btnConfOrdine);
 
 		comboBox = new JComboBox<Cibo>(menu);
@@ -123,10 +127,14 @@ public class ViewCameriere {
 		panelConsComande.setLayout(null);
 		
 		btnHome = new JButton("Home");
+		btnHome.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnHome.setBackground(new Color(255, 180, 130));
 		btnHome.setBounds(100, 525, 200, 30);
 		panelConsComande.add(btnHome);
 		
 		btnConsegna = new JButton("Consegna");
+		btnConsegna.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnConsegna.setBackground(new Color(255, 180, 130));
 		btnConsegna.setBounds(100, 450, 200, 30);
 		panelConsComande.add(btnConsegna);
 		

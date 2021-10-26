@@ -25,7 +25,7 @@ public class ControlCucina implements ActionListener{
 
 	public void actionPerformed(ActionEvent arg0) {
 
-		if(arg0.getActionCommand().equalsIgnoreCase("CUCINA")) {
+		if(arg0.getActionCommand().equalsIgnoreCase("Apri")) {
 			Comanda c=null;
 			c=v.getComanda();
 			if(c!=null) {
@@ -33,7 +33,7 @@ public class ControlCucina implements ActionListener{
 				v.openComanda(c);
 			}
 		}
-		else if(arg0.getActionCommand().equalsIgnoreCase("exit")){
+		else if(arg0.getActionCommand().equalsIgnoreCase("Exit")){
 			v.openLista();
 			addListaComande();
 		}
