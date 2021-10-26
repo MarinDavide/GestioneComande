@@ -6,10 +6,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 import ControlCucina.ControlCucina;
 import Model.Cibo;
@@ -42,7 +44,7 @@ public class ViewCucina {
 	
 	public ViewCucina() {
 		frame = new JFrame();
-		frame.setTitle("Ristorante - Cucina");
+		frame.setTitle("al Cane Blu - Cucina");
 		ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("Model/imgRistorante.jpg"));
 		frame.setIconImage(ico.getImage());
 		frame.setResizable(false);
@@ -52,17 +54,23 @@ public class ViewCucina {
 		
 		elenco = new JPanel();
 		elenco.setBounds(0, 0, 794, 565);
-		elenco.setBackground(new Color(255,250,150));
+		elenco.setBackground(new Color(225,235,255));
 		elenco.setLayout(null);
 		elenco.setVisible(true);
 		frame.getContentPane().add(elenco);
 		
 		comanda = new JPanel();
 		comanda.setBounds(0, 0, 794, 565);
-		comanda.setBackground(new Color(255,250,150));
+		comanda.setBackground(new Color(225,235,255));
 		comanda.setLayout(null);
 		comanda.setVisible(false);
 		frame.getContentPane().add(comanda);
+
+		JLabel lblNewLabel = new JLabel("Gestione Comande");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 10, 400, 45);
+		elenco.add(lblNewLabel);
 		
 		listmodel=new DefaultListModel<>();
 		
@@ -73,24 +81,25 @@ public class ViewCucina {
 		comande.setModel(listmodel);
 			
 		comande_scroll=new JScrollPane(comande);
-		comande_scroll.setBounds(20, 20, 650, 520);
+		comande_scroll.setBounds(20, 70, 650, 470);
 		elenco.add(comande_scroll);
 		
 		select=new JButton("Apri");
+		select.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		select.setBounds(690, 200, 80, 200);
 		elenco.add(select);
 		
 		
 		
 		tavolo=new JTextArea("");
-		tavolo.setBackground(new Color(255,250,150));
+		tavolo.setBackground(new Color(225,235,255));
 		tavolo.setFont(new Font("Source Sans Pro", Font.PLAIN, 20));
 		tavolo.setBounds(20, 20, 700, 20);
 		comanda.add(tavolo);
 		
 		elencocibi=new JTextArea("Lista Cibi: ");
 		elencocibi.setFont(new Font("Source Sans Pro", Font.PLAIN, 20));
-		elencocibi.setBackground(new Color(255,250,150));
+		elencocibi.setBackground(new Color(225,235,255));
 		elencocibi.setBounds(20, 60, 700, 20);
 		comanda.add(elencocibi);
 		
@@ -106,11 +115,13 @@ public class ViewCucina {
 		comanda.add(cibi_scroll);
 		
 		esegui=new JButton("Cucinato");
-		esegui.setBounds(20, 450, 100, 50);
+		esegui.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		esegui.setBounds(20, 450, 150, 50);
 		comanda.add(esegui);
 		
 		exit=new JButton("Exit");
-		exit.setBounds(620, 450, 100, 50);
+		exit.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		exit.setBounds(570, 450, 150, 50);
 		comanda.add(exit);
 	}
 

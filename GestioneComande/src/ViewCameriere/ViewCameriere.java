@@ -57,7 +57,7 @@ public class ViewCameriere {
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setTitle("Ristorante - Cameriere");
+		frame.setTitle("al Cane Blu - Cameriere");
 		ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("Model/imgRistorante.jpg"));
 		frame.setIconImage(ico.getImage());
 		frame.setResizable(false);
@@ -66,21 +66,28 @@ public class ViewCameriere {
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 
 		panelHome = new JPanel();
-		panelHome.setBackground(new Color(255,245,100));
+		panelHome.setBackground(new Color(225,235,255));
 		frame.getContentPane().add(panelHome, "name_473329837800");
 		panelHome.setLayout(null);
 
 		btnRicComande = new JButton("Nuova Comanda");
 		btnRicComande.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnRicComande.setBackground(new Color(255, 180, 130));
+		btnRicComande.setBackground(new Color(255, 255, 140));
 		btnRicComande.setBounds(75, 150, 250, 50);
 		panelHome.add(btnRicComande);
 
 		btnConsComande = new JButton("Consegna Comanda");
 		btnConsComande.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnConsComande.setBackground(new Color(255, 180, 130));
-		btnConsComande.setBounds(75, 300, 250, 50);
+		btnConsComande.setBackground(new Color(255, 255, 140));
+		btnConsComande.setBounds(75, 250, 250, 50);
 		panelHome.add(btnConsComande);
+		
+
+
+		JLabel img = new JLabel("");
+		img.setIcon(ico);
+		img.setBounds(100, 400, 200, 200);
+		panelHome.add(img);
 
 		JLabel lblNewLabel = new JLabel("Gestione Comande");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -89,13 +96,13 @@ public class ViewCameriere {
 		panelHome.add(lblNewLabel);
 
 		panelRicComande = new JPanel();
-		panelRicComande.setBackground(new Color(255,245,100));
+		panelRicComande.setBackground(new Color(225,235,255));
 		frame.getContentPane().add(panelRicComande, "name_494704258300");
 		panelRicComande.setLayout(null);
 
 		btnAggiungi = new JButton("Aggiungi");
 		btnAggiungi.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnAggiungi.setBackground(new Color(255, 180, 130));
+		btnAggiungi.setBackground(new Color(255, 255, 140));
 		btnAggiungi.setBounds(125, 90, 150, 35);
 		panelRicComande.add(btnAggiungi);
 
@@ -107,7 +114,7 @@ public class ViewCameriere {
 
 		btnConfOrdine = new JButton("Conferma Ordine");
 		btnConfOrdine.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnConfOrdine.setBackground(new Color(255, 180, 130));
+		btnConfOrdine.setBackground(new Color(255, 255, 140));
 		btnConfOrdine.setBounds(100, 575, 200, 40);
 		panelRicComande.add(btnConfOrdine);
 
@@ -122,19 +129,19 @@ public class ViewCameriere {
 		panelRicComande.add(textRiepOrdine);
 
 		panelConsComande = new JPanel();
-		panelConsComande.setBackground(new Color(255,245,100));
+		panelConsComande.setBackground(new Color(225,235,255));
 		frame.getContentPane().add(panelConsComande, "name_562332202200");
 		panelConsComande.setLayout(null);
 		
 		btnHome = new JButton("Home");
 		btnHome.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnHome.setBackground(new Color(255, 180, 130));
+		btnHome.setBackground(new Color(255, 255, 140));
 		btnHome.setBounds(100, 525, 200, 30);
 		panelConsComande.add(btnHome);
 		
 		btnConsegna = new JButton("Consegna");
 		btnConsegna.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnConsegna.setBackground(new Color(255, 180, 130));
+		btnConsegna.setBackground(new Color(255, 255, 140));
 		btnConsegna.setBounds(100, 450, 200, 30);
 		panelConsComande.add(btnConsegna);
 		
