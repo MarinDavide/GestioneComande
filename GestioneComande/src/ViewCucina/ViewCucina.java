@@ -30,6 +30,7 @@ public class ViewCucina {
 	private JList<Comanda> comande;
 	private JScrollPane comande_scroll;
 	private JButton select;
+	private JButton refresh;
 
 	private JPanel comanda;
 	private JTextArea tavolo;
@@ -86,8 +87,15 @@ public class ViewCucina {
 		
 		select=new JButton("Apri");
 		select.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		select.setBounds(690, 200, 80, 200);
+		select.setBounds(690, 340, 80, 200);
 		elenco.add(select);
+
+		ImageIcon ref = new ImageIcon(getClass().getClassLoader().getResource("Model/refresh80.jpg"));
+		refresh=new JButton("");
+		refresh.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		refresh.setIcon(ref);
+		refresh.setBounds(690, 70, 80, 80);
+		elenco.add(refresh);
 		
 		
 		
@@ -114,7 +122,7 @@ public class ViewCucina {
 		cibi_scroll.setBounds(20, 85, 700, 350);
 		comanda.add(cibi_scroll);
 		
-		esegui=new JButton("Cucinato");
+		esegui=new JButton("Pronto");
 		esegui.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		esegui.setBounds(20, 450, 150, 50);
 		comanda.add(esegui);
@@ -133,6 +141,7 @@ public class ViewCucina {
 		select.addActionListener(c);
 		esegui.addActionListener(c);
 		exit.addActionListener(c);
+		refresh.addActionListener(c);
 	}
 	
 	public void addComanda(Comanda c) {

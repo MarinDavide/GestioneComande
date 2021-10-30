@@ -35,6 +35,7 @@ public class ViewCameriere {
 	private JButton btnAggiungi;
 	private JButton btnHome;
 	private JButton btnConsegna;
+	private JButton refresh;
 	private JTextArea textRiepOrdine;
 	private JComboBox<Cibo> comboBox;
 	private Cibo[] menu;
@@ -85,7 +86,7 @@ public class ViewCameriere {
 
 
 		JLabel img = new JLabel("");
-		img.setIcon(ico);
+		img.setIcon(ico);	
 		img.setBounds(100, 400, 200, 200);
 		panelHome.add(img);
 
@@ -136,14 +137,21 @@ public class ViewCameriere {
 		btnHome = new JButton("Home");
 		btnHome.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnHome.setBackground(new Color(255, 255, 140));
-		btnHome.setBounds(100, 525, 200, 30);
+		btnHome.setBounds(20, 520, 200, 30);
 		panelConsComande.add(btnHome);
 		
 		btnConsegna = new JButton("Consegna");
 		btnConsegna.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnConsegna.setBackground(new Color(255, 255, 140));
-		btnConsegna.setBounds(100, 450, 200, 30);
+		btnConsegna.setBounds(20, 450, 200, 30);
 		panelConsComande.add(btnConsegna);
+
+		ImageIcon ref = new ImageIcon(getClass().getClassLoader().getResource("Model/refresh100.jpg"));
+		refresh=new JButton("");
+		refresh.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		refresh.setIcon(ref);
+		refresh.setBounds(270, 450, 100, 100);
+		panelConsComande.add(refresh);
 		
 		listmodel=new DefaultListModel<>();
 		list = new JList<>();
@@ -169,6 +177,7 @@ public class ViewCameriere {
 		btnRicComande.addActionListener(controller);
 		btnHome.addActionListener(controller);
 		btnConsegna.addActionListener(controller);
+		refresh.addActionListener(controller);
 	}
 
 	public void ricComande() {

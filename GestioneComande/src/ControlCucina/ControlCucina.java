@@ -37,9 +37,13 @@ public class ControlCucina implements ActionListener{
 			v.openLista();
 			addListaComande();
 		}
-		else {
+		else if(arg0.getActionCommand().equalsIgnoreCase("Pronto")){
 			m.setCucinato();
 			fc.setComande(m.getComande());
+			v.openLista();
+			addListaComande();
+		}
+		else {
 			v.openLista();
 			addListaComande();
 		}
